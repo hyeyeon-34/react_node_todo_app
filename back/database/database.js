@@ -8,6 +8,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
   database: process.env.DB_NAME,
 });
+//  .env에서 생성한 환경변수에는 내 정보가 들어가있기 때문에 각각의 변수로 다시 이 env들을 담는다.
 
 module.exports = pool;
 // {}로 감쌀 경우 pool 변수를 적어서 사용해야 한다.
