@@ -64,8 +64,8 @@ const Item = ({ task }) => {
     dispatch(openModal({ modalType: 'update', task })); // modalSlice에서 openModal 가져오기
   };
 
-  const detailPopup = () => {
-    dispatch(openDetail({ modalType: 'detail' }));
+  const detailModal = () => {
+    dispatch(openDetail({ modalType: 'detail', task }));
   };
 
   return (
@@ -78,7 +78,7 @@ const Item = ({ task }) => {
             {title}
             <span
               className="text-sm py-1 px-3 border border-gray-500 rounded-md hover:bg-gray-700 cursor-pointer"
-              onClick={detailPopup}
+              onClick={detailModal}
             >
               자세히
             </span>

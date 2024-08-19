@@ -8,10 +8,12 @@ import Item from './Item';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import LoadingSkeleton from '../loadingSkeleton';
+import Detail from './Detail';
 const ItemPanel = ({ pageTitle, filterCompleted, filterImportant }) => {
   const dispatch = useDispatch();
   const authData = useSelector((state) => state.auth.authData);
   const isOpen = useSelector((state) => state.modal.isOpen);
+  const isDetail = useSelector((state) => state.detail.isDetail);
   const userKey = authData?.sub;
   const getTasksData = useSelector((state) => state.api.getItemsData);
 
@@ -72,7 +74,7 @@ const ItemPanel = ({ pageTitle, filterCompleted, filterImportant }) => {
       {userKey ? (
         <div className="panel-wrapper">
           {isOpen && <Modal />}
-
+          {isDetail && <Detail />}
           <PageTitle title={pageTitle} />
           <div className="items flex flex-wrap">
             {loading ? (
@@ -87,12 +89,11 @@ const ItemPanel = ({ pageTitle, filterCompleted, filterImportant }) => {
             ) : (
               filteredTasks?.map((item, idx) => <Item key={idx} task={item} />)
             )}
-
             <AddItem />
+
+            {/* {modalType === 'detail' && isOpen === true ? <Detail /> : ''} */}
           </div>
-
           {/* <div className="panel-items"> */}
-
           {/* </div> */}
         </div>
       ) : (

@@ -8,6 +8,7 @@ import {
   fetchPostItemData,
   fetchPutItemData,
 } from '../redux/slices/apiSlice';
+import Detail from './Detail';
 const Modal = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.authData);
@@ -41,14 +42,14 @@ const Modal = () => {
         isImportant: false,
         userId: user?.sub,
       });
-    } else if (modalType === 'detail') {
+    } else if (modalType === 'detail' && task) {
       setFormData({
-        title: '',
-        description: '',
-        date: '',
-        isCompleted: false,
-        isImportant: false,
-        userId: user?.sub,
+        title: task.title || '',
+        description: task.description || '',
+        date: task.date || '',
+        isCompleted: task.iscompleted || false,
+        isImportant: task.isimportant || false,
+        id: task._id || '',
       });
     }
   }, [modalType, task]);
