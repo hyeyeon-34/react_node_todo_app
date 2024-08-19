@@ -22,7 +22,7 @@ const Navbar = ({ menuIdx }) => {
       setIsAuthentication(true);
     },
     [dispatch]
-  ); // callback 안에 넣기 
+  ); // callback 안에 넣기
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('authData'));
@@ -40,6 +40,7 @@ const Navbar = ({ menuIdx }) => {
         // 구글 값 초기화
         client_id: googleClientId,
         callback: handleLoginSuccess,
+        use_fedcm_for_prompt: false,
       });
     }
   }, [googleClientId, handleLoginSuccess]);

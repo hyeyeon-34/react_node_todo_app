@@ -5,7 +5,7 @@ import { openModal } from '../redux/slices/modalSlice';
 const AddItem = () => {
   const dispatch = useDispatch();
   const handleOpenModal = () => {
-    dispatch(openModal()); // modalSlice에서 openModal 가져오기
+    dispatch(openModal({ modalType: 'create' })); // modalSlice에서 openModal 가져오기
   };
   return (
     <div className="add-card w-1/3 h-[25vh] p-[0.25rem]">

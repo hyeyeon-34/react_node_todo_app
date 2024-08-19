@@ -3,7 +3,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 const LoadingSkeleton = () => {
   return (
-    <p className="flex w-1/3 flex-col p-4l justify-between">
+    <div className="flex w-1/3 flex-col p-4l justify-between">
       <div>
         <Skeleton count={7} width="100%" height="30px" />
       </div>
@@ -13,7 +13,7 @@ const LoadingSkeleton = () => {
         <Skeleton count={1} width="100%" height="30px" />
         <Skeleton count={1} width="100%" height="30px" />
       </div> */}
-    </p>
+    </div>
   );
 };
 

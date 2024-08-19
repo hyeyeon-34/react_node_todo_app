@@ -28,4 +28,6 @@ app.get('/', (req, res) => {
 
 app.use(require('./routers/getRoutes')); //getRoutes
 app.use(require('./routers/postRoutes'));
+app.use(require('./routers/deleteRoutes'));
+app.use(require('./routers/updateRoutes'));
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`)); // 서버실행시 메시지

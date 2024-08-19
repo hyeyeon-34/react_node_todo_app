@@ -1,24 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'; // 1. slice 생성
 
-const modalSlice = createSlice({
-  name: 'modal',
+const detailSlice = createSlice({
+  name: 'detaill',
   initialState: {
     isOpen: false,
-    modalType: 'create',
+    modalType: 'detail',
     task: null,
   },
   reducers: {
-    openModal: (state, action) => {
+    openDetail: (state, action) => {
       state.isOpen = true;
       state.modalType = action.payload.modalType;
       state.task = action.payload.task;
-      // console.log(state.modalType, state.task);
+      console.log(state.modalType, state.task);
     },
-    closeModal: (state) => {
+    closeDetail: (state) => {
       state.isOpen = false;
     },
   },
 });
 
-export const { openModal, closeModal } = modalSlice.actions;
-export default modalSlice.reducer;
+export const { openDetail, closeDetail } = detailSlice.actions;
+export default detailSlice.reducer;
